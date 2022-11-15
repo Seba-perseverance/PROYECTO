@@ -44,3 +44,4 @@ class cliente:
         for it in self.clientes:
             if rut == it.rut:
                 self.clientes.remove(it)
+            pass
