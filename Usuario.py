@@ -1,5 +1,5 @@
 
-class cliente:
+class usuario:
 
     
     def __init__(self,rut,nombre,apellido,edad,direccion,correo):
@@ -10,12 +10,13 @@ class cliente:
         self.direccion = direccion        
         self.correo = correo
         self.compra=[]
-        self.clientes = []
+        self.usuario = []
     def datos(self):
         print(f"RUT: {self.rut} NOMBRE: {self.nombre} APELLIDO: {self.apellido} EDAD: {self.edad} DIRECCION: {self.direccion} CORREO: {self.correo}")
     def mostrar(self):
-        for cliente in self.clientes:
-            cliente.datos()
+        sql = "SELECT * FROM usuario"
+        for i in self.usuario:
+            i.datos()
         
     def modificar(self):
         rut= int(input("ingrese el codigo del usuario: "))
@@ -24,7 +25,7 @@ class cliente:
         edad=int(input("ingrese la edad: "))
         direccion=input("ingrese la direccion: ")
         correo= input("ingrese correo: ")
-        for  it in self.clientes:
+        for  it in self.usuario:
             if rut==it.rut:
                 it.nombre=nombre
                 it.apellido=apellido
@@ -41,16 +42,16 @@ class cliente:
         edad = int(input("ingrese la edad: "))
         direccion = input("ingrese la direccion: ")
         corr = input("ingrese correo: ")
-        client=cliente(rut,nom,ape,edad,direccion,corr)
-        for it in self.clientes:
+        client=usuario(rut,nom,ape,edad,direccion,corr)
+        for it in self.usuario:
             if it.rut == client.rut:
                 return 'ya existe el cliente en bd'
-        self.clientes.append(client)
+        self.usuario.append(client)
         print("ingresado con exito!....")
 
     def eliminar(self):
         rut=int(input("ingrese rut: "))
-        for it in self.clientes:
+        for it in self.usuario:
             if rut == it.rut:
-                self.clientes.remove(it)
+                self.usuario.remove(it)
             print("Usuario eliminado...")

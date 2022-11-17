@@ -14,14 +14,13 @@ class DataBase:
                 host="localhost",
                 user=self.user,
                 password=self.password,
-                database="cinema"
+                database="proyecto_nuevo1"
             ) as connection:
                 print(connection)
-                select = "SELECT * FROM person"
+                select = "SELECT * FROM Usuario"
                 with connection.cursor() as cursor:
                     cursor.execute(select)
                     for row in cursor.fetchall():
                         print(row)
         except Error as e:
             print(e)
-            
