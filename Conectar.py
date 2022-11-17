@@ -15,6 +15,7 @@ class DataBase:
                 user=self.user,
                 password=self.password,
                 database="proyecto_nuevo1"
+                
             ) as connection:
                 print(connection)
                 select = "SELECT * FROM Usuario"
@@ -24,3 +25,4 @@ class DataBase:
                         print(row)
         except Error as e:
             print(e)
+USER=DataBase("root","Nokia2022")
