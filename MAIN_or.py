@@ -1,4 +1,4 @@
-from Cliente import cliente
+from Usuario import cliente
 from motos import *
 from Venta import *
 u1=cliente(' '," "," ","","","")
