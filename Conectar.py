@@ -4,25 +4,26 @@ from mysql.connector import connect, Error
 
 class DataBase:
 
-    def __init__(self, user, password):
-        self.user = user
-        self.password = password
+    def __init__(self):
+        self.username= input("ingrese el usuario: ")
+        self.password = input(" ingrese contraseña: ")
 
     def conectar(self):
+        
         try:
             with connect(
                 host="localhost",
-                user=self.user,
+                user=self.username,
                 password=self.password,
                 database="proyecto_nuevo1"
                 
             ) as connection:
                 print(connection)
-                select = "SELECT * FROM Usuario"
                 with connection.cursor() as cursor:
-                    cursor.execute(select)
-                    for row in cursor.fetchall():
-                        print(row)
+                    cursor.execute("insert into usuario (user_name,pass,nombre,apellido,direccion,edad,correo) VALUE ('root','123qwe','fernando','castro','rosario',27,'scastrof@');")
+                    connection.commit()
+                    
         except Error as e:
             print(e)
-USER=DataBase("root","Nokia2022")
+db=DataBase()
+db.conectar()

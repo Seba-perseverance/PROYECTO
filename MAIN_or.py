@@ -1,9 +1,12 @@
-from Usuario import cliente
-from motos import *
+from Usuario import usuario
+from Boleta import *
 from Venta import *
 u1=cliente(' '," "," ","","","")
 moto=Ventas(' ','','')
+class menu:
 
+    def __init__():
+        print("Selecciones")
 def option_client():
     print("-----------Clientes---------")
     print("1.- Agregar cliente")
