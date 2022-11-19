@@ -1,8 +1,8 @@
 class boleta :
     
-    def __init__(self,codigo,nombre,precio,fecha_emision,impuesto):
+    def __init__(self,codigo,nombre_emp,precio,fecha_emision,impuesto):
         self.codigo=codigo
-        self.nombre=nombre
+        self.nombre_emp=nombre_emp
         self.precio=precio
         self.fechae_mision=fecha_emision
         self.impuesto=impuesto

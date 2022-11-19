@@ -1,7 +1,7 @@
 from Usuario import usuario
 from Boleta import *
 from Venta import *
-u1=cliente(' '," "," ","","","")
+u1=usuario(' '," "," ","","","")
 moto=Ventas(' ','','')
 class menu:
 
