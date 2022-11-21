@@ -26,5 +26,18 @@ class menu:
             print("Usuario guardado exitosamente! \n")
         if op==2:
             usuario.mostrar()
+        if op==3:
+            id=int(input("Ingrese el id del usuario..."))
+            print("Solicitando datos de usuario ...\n")
+            rut = int(input("Ingrese rut ... "))
+            nombre= input("Ingrese el nombre... ")
+            apellido = input("Ingrese el apellido... ")
+            edad= int(input("Ingrese la edad... "))
+            direccion = input("Ingrese la direccion... ")
+            correo = input("Ingrese el correo... ")
+            
+            nuevoU2=usuario(rut,nombre,apellido,edad,direccion,correo)
+
+            nuevoU2.modificar(id)
 
 menu.__init__()

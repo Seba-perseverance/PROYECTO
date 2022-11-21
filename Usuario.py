@@ -18,23 +18,12 @@ class usuario:
         db=DataBase()
         db.list()
         
-    def modificar(self):
-        rut= int(input("ingrese el codigo del usuario: "))
-        nombre=input("ingrese nombre:")
-        apellido=input("ingrese apellido: ")
-        edad=int(input("ingrese la edad: "))
-        direccion=input("ingrese la direccion: ")
-        correo= input("ingrese correo: ")
-        for  it in self.usuario:
-            if rut==it.rut:
-                it.nombre=nombre
-                it.apellido=apellido
-                it.edad=edad
-                it.direccion=direccion
-                it.correo=correo
-                
-                return f'Se cambio datos del usuario: {it.nombre}'
-        print("Cambio exitoso!.....")
+    def modificar(self,id):
+
+        sql=f'UPDATE usuario SET rut={self.rut},nombre="{self.nombre}",apellido="{self.apellido}",edad={self.edad},direccion="{self.direccion}",correo="{self.correo}" Where idusuario={id};'
+        db=DataBase()
+        db.modific(sql)
+
     
 
     def eliminar(self):
