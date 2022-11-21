@@ -26,9 +26,7 @@ class usuario:
 
     
 
-    def eliminar(self):
-        rut=int(input("ingrese rut: "))
-        for it in self.usuario:
-            if rut == it.rut:
-                self.usuario.remove(it)
-            print("Usuario eliminado...")
+    def eliminar(id):
+        sql=f'DELETE FROM usuario WHERE idusuario={id};'
+        db=DataBase()
+        db.Eliminar(sql)

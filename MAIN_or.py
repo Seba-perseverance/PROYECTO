@@ -24,9 +24,9 @@ class menu:
             nuevoU = usuario(rut,nombre,apellido,edad,direccion,correo)
             nuevoU.create()
             print("Usuario guardado exitosamente! \n")
-        if op==2:
+        elif op==2:
             usuario.mostrar()
-        if op==3:
+        elif op==3:
             id=int(input("Ingrese el id del usuario..."))
             print("Solicitando datos de usuario ...\n")
             rut = int(input("Ingrese rut ... "))
@@ -39,5 +39,8 @@ class menu:
             nuevoU2=usuario(rut,nombre,apellido,edad,direccion,correo)
 
             nuevoU2.modificar(id)
-
+        if op==4:
+            id =int(input("Ingrese id..."))
+            
+            usuario.eliminar(id)
 menu.__init__()

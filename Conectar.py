@@ -44,6 +44,15 @@ class DataBase:
             self.close()
         except Error as e:
             print(e)
+
+    def Eliminar(self,sql):
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(sql)
+            self.connection.commit()
+            self.close()
+        except Error as e:
+            print(e)
     def close(self):
         self.connection.close()
         print("la conexion fue cerrada...")
