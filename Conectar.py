@@ -9,8 +9,8 @@ class DataBase:
             aux= connect(
                 host='localhost',
                 user='root',
-                password=getpass("ingrese la contraseña"),
-                database="proyecto1casa"
+                password='Nokia2022',
+                database="proyectonuevo"
                 
             ) 
             print("correcto..")
@@ -30,7 +30,7 @@ class DataBase:
     
     def list(self):
         cursor =self.connection.cursor()
-        cursor.execute("SELECT * FROM Usuario;")
+        cursor.execute("SELECT * FROM usuario;")
         resultado=cursor.fetchall()
         for registro in resultado:
             print(registro)
@@ -39,4 +39,3 @@ class DataBase:
     def close(self):
         self.connection.close()
         print("la conexion fue cerrada...")
-DataBase()

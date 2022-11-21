@@ -1,20 +1,18 @@
 from Usuario import usuario
 from Boleta import *
 from Venta import *
-u1=usuario(' '," "," ","","","")
-moto=Ventas(' ','','')
+
 class menu:
 
     def __init__():
-        print("Selecciones")
-    def option_client():
+        
         print("-----------Clientes---------")
         print("1.- Agregar cliente")
         print("2.- Mostrar clientes")
         print("3.- Modificar datos de cliente")
         print("4.- Eliminar cliente")
 
-        op=input("Eliga una opcion...")
+        op=int(input("Eliga una opcion..."))
         if op ==1:
             print("Solicitando datos de usuario ...\n")
             rut = int(input("Ingrese rut ... "))
@@ -28,3 +26,5 @@ class menu:
             print("Usuario guardado exitosamente! \n")
         if op==2:
             usuario.mostrar()
+
+menu.__init__()

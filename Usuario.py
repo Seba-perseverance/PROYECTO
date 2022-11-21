@@ -9,14 +9,14 @@ class usuario:
         self.edad = edad
         self.direccion = direccion        
         self.correo = correo
-        self.compra=[]
-        self.usuario = []
-    def datos(self):
-        print(f"RUT: {self.rut} NOMBRE: {self.nombre} APELLIDO: {self.apellido} EDAD: {self.edad} DIRECCION: {self.direccion} CORREO: {self.correo}")
-    def mostrar(self):
-        sql = "SELECT * FROM usuario"
-        for i in self.usuario:
-            i.datos()
+    
+    def create(self):
+        sql=f'INSERT INTO usuario (rut,nombre,apellido,edad,direccion,correo) VALUES ({self.rut},"{self.nombre}","{self.apellido}",{self.edad},"{self.direccion}","{self.correo}")'
+        db=DataBase()
+        db.insert(sql)
+    def mostrar():
+        db=DataBase()
+        db.list()
         
     def modificar(self):
         rut= int(input("ingrese el codigo del usuario: "))
@@ -35,19 +35,7 @@ class usuario:
                 
                 return f'Se cambio datos del usuario: {it.nombre}'
         print("Cambio exitoso!.....")
-    def create(self):
-        rut = int(input("ingrese el rut: "))
-        nom = input("ingrese nombre: ")
-        ape = input("ingrese apellido: ")
-        edad = int(input("ingrese la edad: "))
-        direccion = input("ingrese la direccion: ")
-        corr = input("ingrese correo: ")
-        client=usuario(rut,nom,ape,edad,direccion,corr)
-        for it in self.usuario:
-            if it.rut == client.rut:
-                return 'ya existe el cliente en bd'
-        self.usuario.append(client)
-        print("ingresado con exito!....")
+    
 
     def eliminar(self):
         rut=int(input("ingrese rut: "))
