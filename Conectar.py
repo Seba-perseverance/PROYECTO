@@ -5,25 +5,38 @@ from mysql.connector import connect, Error
 class DataBase:
 
     def __init__(self):
-        self.username= input("ingrese el usuario: ")
-        self.password = input(" ingrese contraseña: ")
-
-    def conectar(self):
-        
         try:
-            with connect(
-                host="localhost",
-                user=self.username,
-                password=self.password,
-                database="proyecto_nuevo1"
+            aux= connect(
+                host='localhost',
+                user='root',
+                password=getpass("ingrese la contraseña"),
+                database="proyecto1casa"
                 
-            ) as connection:
-                print(connection)
-                with connection.cursor() as cursor:
-                    cursor.execute("insert into usuario (user_name,pass,nombre,apellido,direccion,edad,correo) VALUE ('root','123qwe','fernando','castro','rosario',27,'scastrof@');")
-                    connection.commit()
+            ) 
+            print("correcto..")
+            self.connection=aux
                     
         except Error as e:
+            print( 'error'+str(e))
+
+    def insert(self,sql):
+        try:
+            cursor = self.connection.cursor()
+            cursor.execute(sql)
+            self.connection.commit()
+            self.close()
+        except Error as e:
             print(e)
-db=DataBase()
-db.conectar()
+    
+    def list(self):
+        cursor =self.connection.cursor()
+        cursor.execute("SELECT * FROM Usuario;")
+        resultado=cursor.fetchall()
+        for registro in resultado:
+            print(registro)
+        self.close()
+
+    def close(self):
+        self.connection.close()
+        print("la conexion fue cerrada...")
+DataBase()
