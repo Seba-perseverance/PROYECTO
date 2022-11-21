@@ -18,9 +18,9 @@ class usuario:
         db=DataBase()
         db.list()
         
-    def modificar(self,id):
+    def modificar(id,rut,nombre,apellido,edad,direccion,correo):
 
-        sql=f'UPDATE usuario SET rut={self.rut},nombre="{self.nombre}",apellido="{self.apellido}",edad={self.edad},direccion="{self.direccion}",correo="{self.correo}" Where idusuario={id};'
+        sql=f'UPDATE usuario SET rut={rut},nombre="{nombre}",apellido="{apellido}",edad={edad},direccion="{direccion}",correo="{correo}" Where idusuario={id};'
         db=DataBase()
         db.modific(sql)
 

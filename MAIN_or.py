@@ -36,9 +36,9 @@ class menu:
             direccion = input("Ingrese la direccion... ")
             correo = input("Ingrese el correo... ")
             
-            nuevoU2=usuario(rut,nombre,apellido,edad,direccion,correo)
-
-            nuevoU2.modificar(id)
+            
+            usuario.modificar(id,rut,nombre,apellido,edad,direccion,correo)
+            
         if op==4:
             id =int(input("Ingrese id..."))
             
