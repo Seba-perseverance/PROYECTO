@@ -10,7 +10,7 @@ class DataBase:
                 host='localhost',
                 user='root',
                 password='Nokia2022',
-                database="proyectonuevo"
+                database="mydb"
                 
             ) 
             print("correcto..")

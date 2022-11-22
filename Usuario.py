@@ -2,7 +2,8 @@ from Conectar import *
 class usuario:
 
     
-    def __init__(self,rut,nombre,apellido,edad,direccion,correo):
+    def __init__(self,id,rut,nombre,apellido,edad,direccion,correo):
+        self.id=id
         self.rut = rut
         self.nombre = nombre
         self.apellido = apellido
@@ -11,7 +12,7 @@ class usuario:
         self.correo = correo
     
     def create(self):
-        sql=f'INSERT INTO usuario (rut,nombre,apellido,edad,direccion,correo) VALUES ({self.rut},"{self.nombre}","{self.apellido}",{self.edad},"{self.direccion}","{self.correo}")'
+        sql=f'INSERT INTO cliente (idcliente,rut,nombre,apellido,edad,direccion,correo) VALUES ({self.id}{self.rut},"{self.nombre}","{self.apellido}",{self.edad},"{self.direccion}","{self.correo}")'
         db=DataBase()
         db.insert(sql)
     def mostrar():
