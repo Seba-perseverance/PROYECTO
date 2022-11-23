@@ -16,15 +16,15 @@ class menu:
         op=int(input("Eliga una opcion..."))
         if op ==1:
             print("Solicitando datos ...\n")
-            id=int(input("Ingrese el id..."))
+            
             rut = int(input("Ingrese rut ... "))
             nombre= input("Ingrese el nombre... ")
             apellido = input("Ingrese el apellido... ")
             edad= int(input("Ingrese la edad... "))
             direccion = input("Ingrese la direccion... ")
             correo = input("Ingrese el correo... ")
-            nuevoU = cliente(id,rut,nombre,apellido,edad,direccion,correo)
-            nuevoU.create()
+            nuevoU =cliente(rut,nombre,apellido,edad,direccion,correo)
+            nuevoU.create1()
             print("Usuario guardado exitosamente! \n")
         elif op==2:
             cliente.mostrar()
