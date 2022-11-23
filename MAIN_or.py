@@ -3,7 +3,7 @@ from Boleta import *
 from Venta import *
 from trabajador import *
 from cliente import *
-
+from Conectar import *
 class menu:
 
     def __init__():
@@ -30,16 +30,20 @@ class menu:
             cliente.mostrar()
         elif op==3:
             cliente.mostrar()
-            id=int(input("Ingrese el id del usuario..."))
-            print("Solicitando datos de usuario ...\n")
-            rut = int(input("Ingrese rut ... "))
-            nombre= input("Ingrese el nombre... ")
-            apellido = input("Ingrese el apellido... ")
-            edad= int(input("Ingrese la edad... "))
-            direccion = input("Ingrese la direccion... ")
-            correo = input("Ingrese el correo... ")
+            
+            u=DataBase()
+            u.buscador()
+
+            
+            # print("Solicitando datos de usuario ...\n")
+            #rut = int(input("Ingrese rut ... "))
+            #nombre= input("Ingrese el nombre... ")
+            #apellido = input("Ingrese el apellido... ")
+            #edad= int(input("Ingrese la edad... "))
+            #direccion = input("Ingrese la direccion... ")
+            #correo = input("Ingrese el correo... ")
                 
-            cliente.modificar(id,rut,nombre,apellido,edad,direccion,correo)
+            #cliente.modificar(id,rut,nombre,apellido,edad,direccion,correo)
             
         if op==4:
             cliente.mostrar()
@@ -117,6 +121,7 @@ class menu:
             trabajador.eliminarT(id)
 
     
+        
     def menuPRINCIPAL():
         print("-----------MENÚ---------")
         print("1.- trabajar con clientes")

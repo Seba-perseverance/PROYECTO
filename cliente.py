@@ -31,8 +31,5 @@ class cliente(usuario):
         db=DataBase()
         db.Eliminar(sql)
     
-    def buscador(id):
-        sql=f'SELECT idcliente FROM cliente;'
-        db=DataBase()
-        db.buscador(id)
+    
         

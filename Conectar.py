@@ -55,14 +55,57 @@ class DataBase:
         except Error as e:
             print(e)
     
-    def buscador(self,id):
-        cursor =self.connection.cursor()
-        cursor.execute(f"SELECT idcliente FROM cliente;")
-        resultado=cursor.fetchall()
-        for registro in resultado:
-            if id == registro:
-                return True
-        
+    def buscador(self):
+        try:
+            id1=int(input("Ingrese el id......:)"))
+            cursor =self.connection.cursor()
+            cursor.execute(f"SELECT idcliente FROM cliente WHERE idcliente={id1};")
+            resultado=cursor.fetchone()
+            print(resultado)
+            if resultado:
+                print("-----------MENÚ---------")
+                print("1.- cambiar rut...")
+                print("2.- cambiar nombre...")
+                print("3.- cambiar apellido...")
+                print("0.- cambiar edad...")
+                print("5.- cambiar direccion...")
+                print("6.- cambiar correo...")
+                op=int(input("Ingrese la opcion deseada"))
+                if op==1:
+                        rut=int(input("Ingrese el nuevo rut..."))
+                        cursor.execute(f"UPDATE cliente SET rut={rut};")
+                        self.connection.commit()
+                        self.close()
+                elif op ==2:
+                        nombre=input("Ingrese el nuevo nombre...")
+                        cursor.execute(f"UPDATE cliente SET nombre='{nombre}';")
+                        self.connection.commit()
+                        self.close()
+                elif op ==3:
+                        apellido=input("Ingrese el nuevo apellido...")
+                        cursor.execute(f"UPDATE cliente SET apellido='{apellido}';")
+                        self.connection.commit()
+                        self.close()
+                elif op ==4:
+                        edad=int(input("Ingrese la nueva edad..."))
+                        cursor.execute(f"UPDATE cliente SET edad={edad};")
+                        self.connection.commit()
+                        self.close()
+                elif op ==5:
+                        direccion=input("Ingrese la nueva direccion...")
+                        cursor.execute(f"UPDATE cliente SET direccion= '{direccion}';")
+                        self.connection.commit()
+                        self.close()
+                elif op ==6:
+                        correo=input("Ingrese el nuevo correo...")
+                        cursor.execute(f"UPDATE cliente SET correo='{correo}';")
+                        self.connection.commit()
+                        self.close()
+                else:
+                        print("Error.....................")
+        except Error as e:
+            print(e)
+
     def close(self):
         self.connection.close()
         print("la conexion fue cerrada...")
