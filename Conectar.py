@@ -2,6 +2,7 @@ from getpass import getpass
 from mysql.connector import connect, Error
 
 
+
 class DataBase:
 
     def __init__(self):
@@ -53,6 +54,15 @@ class DataBase:
             self.close()
         except Error as e:
             print(e)
+    
+    def buscador(self,id):
+        cursor =self.connection.cursor()
+        cursor.execute(f"SELECT idcliente FROM cliente;")
+        resultado=cursor.fetchall()
+        for registro in resultado:
+            if id == registro:
+                return True
+        
     def close(self):
         self.connection.close()
         print("la conexion fue cerrada...")

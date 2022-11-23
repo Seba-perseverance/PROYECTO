@@ -21,14 +21,18 @@ class cliente(usuario):
         db.list(tabla)
         
     def modificar(id,rut,nombre,apellido,edad,direccion,correo):
-
-        sql=f'UPDATE usuario SET rut={rut},nombre="{nombre}",apellido="{apellido}",edad={edad},direccion="{direccion}",correo="{correo}" Where idusuario={id};'
+        cliente.buscador(id)
+        sql=f'UPDATE cliente SET rut={rut},nombre="{nombre}",apellido="{apellido}",edad={edad},direccion="{direccion}",correo="{correo}" Where idusuario={id};'
         db=DataBase()
         db.modific(sql)
 
-    
-
     def eliminar(id):
-        sql=f'DELETE FROM usuario WHERE idusuario={id};'
+        sql=f'DELETE FROM cliente WHERE idcliente={id};'
         db=DataBase()
         db.Eliminar(sql)
+    
+    def buscador(id):
+        sql=f'SELECT idcliente FROM cliente;'
+        db=DataBase()
+        db.buscador(id)
+        

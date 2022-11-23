@@ -29,7 +29,6 @@ class menu:
         elif op==2:
             cliente.mostrar()
         elif op==3:
-            
             cliente.mostrar()
             id=int(input("Ingrese el id del usuario..."))
             print("Solicitando datos de usuario ...\n")
@@ -39,10 +38,11 @@ class menu:
             edad= int(input("Ingrese la edad... "))
             direccion = input("Ingrese la direccion... ")
             correo = input("Ingrese el correo... ")
-            
+                
             cliente.modificar(id,rut,nombre,apellido,edad,direccion,correo)
             
         if op==4:
+            cliente.mostrar()
             id =int(input("Ingrese id..."))
             
             cliente.eliminar(id)
@@ -64,6 +64,7 @@ class menu:
         elif op==2:
             productos.mostrarP()
         elif op==3:
+            productos.mostrarP()
             id=int(input("Ingrese el id del usuario..."))
             print("Solicitando datos de usuario ...\n")
             nombre= input("Ingrese el nombre... ")
@@ -97,6 +98,7 @@ class menu:
         elif op==2:
             trabajador.mostrarT()
         elif op==3:
+            trabajador.mostrarT()
             id=int(input("Ingrese el id del usuario..."))
             print("Solicitando datos de usuario ...\n")
             rut = int(input("Ingrese rut ... "))
