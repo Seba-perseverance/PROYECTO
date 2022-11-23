@@ -16,8 +16,9 @@ class cliente(usuario):
         db=DataBase()
         db.insert(sql)
     def mostrar():
+        tabla='cliente'
         db=DataBase()
-        db.list()
+        db.list(tabla)
         
     def modificar(id,rut,nombre,apellido,edad,direccion,correo):
 

@@ -10,7 +10,7 @@ class DataBase:
                 host='localhost',
                 user='root',
                 password='Nokia2022',
-                database="mydb"
+                database="mydb1"
                 
             ) 
             print("correcto..")
@@ -28,9 +28,9 @@ class DataBase:
         except Error as e:
             print(e)
     
-    def list(self):
+    def list(self,tabla):
         cursor =self.connection.cursor()
-        cursor.execute("SELECT * FROM usuario;")
+        cursor.execute(f"SELECT * FROM {tabla};")
         resultado=cursor.fetchall()
         for registro in resultado:
             print(registro)

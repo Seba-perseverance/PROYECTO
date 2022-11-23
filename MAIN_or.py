@@ -29,6 +29,8 @@ class menu:
         elif op==2:
             cliente.mostrar()
         elif op==3:
+            
+            cliente.mostrar()
             id=int(input("Ingrese el id del usuario..."))
             print("Solicitando datos de usuario ...\n")
             rut = int(input("Ingrese rut ... "))
@@ -48,8 +50,31 @@ class menu:
         print("-----------Productos---------")
         print("1.- Agregar producto")
         print("2.- Mostrar producto")
+        print("3.- Modificar producto")
         print("4.- Eliminar cliente")
-    
+        op=int(input("Eliga una opcion..."))
+        if op ==1:
+            print("Solicitando datos ...\n")
+            nombre= input("Ingrese el nombre... ")
+            marca=input("Ingrese la marca...")
+            precio=int(input("Ingrese el precio..."))
+            nuevoP = productos(nombre,marca,precio)
+            nuevoP.creaP()
+            print("Producto guardado exitosamente! \n")
+        elif op==2:
+            productos.mostrarP()
+        elif op==3:
+            id=int(input("Ingrese el id del usuario..."))
+            print("Solicitando datos de usuario ...\n")
+            nombre= input("Ingrese el nombre... ")
+            marca=input("Ingrese la marca...")
+            precio=int(input("Ingrese el precio..."))
+            productos.modificarP(nombre,marca,precio)
+            
+        if op==4:
+            id =int(input("Ingrese id..."))
+            
+            productos.eliminarP(id)
     def menuEmpleado():
         print("-----------Trabajadores---------")
         print("1.- Agregar trabajadores")
@@ -67,10 +92,10 @@ class menu:
             correo = input("Ingrese el correo... ")
             especialidad =input("Ingrese la especialidad")
             nuevoU = trabajador(rut,nombre,apellido,edad,direccion,correo,especialidad)
-            nuevoU.crea()
+            nuevoU.creaT()
             print("Usuario guardado exitosamente! \n")
         elif op==2:
-            trabajador.mostrar()
+            trabajador.mostrarT()
         elif op==3:
             id=int(input("Ingrese el id del usuario..."))
             print("Solicitando datos de usuario ...\n")
@@ -82,24 +107,27 @@ class menu:
             correo = input("Ingrese el correo... ")
             
             
-            trabajador.modificar(id,rut,nombre,apellido,edad,direccion,correo)
+            trabajador.modificarT(id,rut,nombre,apellido,edad,direccion,correo)
             
         if op==4:
             id =int(input("Ingrese id..."))
             
-            trabajador.eliminar(id)
+            trabajador.eliminarT(id)
 
     
     def menuPRINCIPAL():
         print("-----------MENÚ---------")
         print("1.- trabajar con clientes")
         print("2.- trabajar con trabajadores")
+        print("3.- trabajar con productos")
         print("0.- cerrar sesion...")
         op=int(input("Ingrese la opcione deseada:  "))
         if op == 1:
             menu.__init__()
         elif op == 2:
             menu.menuEmpleado()
+        elif op == 3:
+            menu.menuProductos()
         else:
             print("cerrado sesion...")    
 menu.menuPRINCIPAL()
