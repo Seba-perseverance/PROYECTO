@@ -1,11 +1,13 @@
 from Productos import *
 class compra:
-    def __init__(self,producto_idproducto,boleta_idboleta):
+    def __init__(self,cliente_idcliente,producto_idproducto,boleta_idboleta):
+        self.idCliente=cliente_idcliente
         self.idProducto=producto_idproducto
         self.idBoleta=boleta_idboleta
     
 
     def ingresarCompra(self):
-        sql=f'INSERT INTO compra (cliente_idcliente,producto_idproducto,boleta_idboleta) VALUES (1,{self.idProducto},1)'
+        
+        sql=f'INSERT INTO compra (cliente_idcliente, producto_idproducto,boleta_idboleta,fecha) VALUES(1,{self.idProducto},1,sysdate());'
         db=DataBase()
         db.insert(sql)

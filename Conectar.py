@@ -10,7 +10,7 @@ class DataBase:
             aux= connect(
                 host='localhost',
                 user='root',
-                password='Nokia2022',
+                password="Nokia2022",
                 database="mydb1"
                 
             ) 
@@ -197,3 +197,4 @@ class DataBase:
     def close(self):
         self.connection.close()
         print("la conexion fue cerrada...")
+u=DataBase()
