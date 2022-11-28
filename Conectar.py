@@ -14,7 +14,7 @@ class DataBase:
                 database="mydb1"
                 
             ) 
-            print("correcto..")
+            print("Ingreso a BD..")
             self.connection=aux
                     
         except Error as e:
@@ -104,7 +104,7 @@ class DataBase:
                 else:
                         print("Error.....................")
         except Error as e:
-            print(e)
+                print(e)
     def modificarTRA(self):
         try:
             id1=int(input("Ingrese el id......:)"))
