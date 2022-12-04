@@ -1,4 +1,5 @@
 from Productos import *
+
 class compra:
     def __init__(self,cliente_idcliente,producto_idproducto,boleta_idboleta):
         self.idCliente=cliente_idcliente
@@ -8,6 +9,6 @@ class compra:
 
     def ingresarCompra(self):
         
-        sql=f'INSERT INTO compra (cliente_idcliente, producto_idproducto,boleta_idboleta,fecha) VALUES(1,{self.idProducto},1,sysdate());'
+        sql=f'INSERT INTO compra (cliente_idcliente, producto_idproducto,boleta_idboleta,fecha) VALUES({self.idCliente},{self.idProducto},1,sysdate());'
         db=DataBase()
         db.insert(sql)

@@ -1,8 +1,6 @@
 from getpass import getpass
 from mysql.connector import connect, Error
 
-
-
 class DataBase:
 
     def __init__(self):
@@ -12,14 +10,11 @@ class DataBase:
                 user='root',
                 password="Nokia2022",
                 database="mydb1"
-                
-            ) 
+                )               
             print("Ingreso a BD..")
             self.connection=aux
-                    
         except Error as e:
             print( 'error'+str(e))
-
     def insert(self,sql):
         try:
             cursor = self.connection.cursor()
@@ -35,7 +30,7 @@ class DataBase:
         resultado=cursor.fetchall()
         for registro in resultado:
             print(registro)
-        self.close()
+        self.connection.close()
     
     def modific(self,sql):
         try:
@@ -57,12 +52,13 @@ class DataBase:
     
     def modificarCLI(self):
         try:
-            id1=int(input("Ingrese el id......:)"))
+            id1=int(input("Ingrese el id..."))
             cursor =self.connection.cursor()
             cursor.execute(f"SELECT idcliente FROM cliente WHERE idcliente={id1};")
             resultado=cursor.fetchone()
             print(resultado)
             if resultado:
+                
                 print("-----------MENÚ---------")
                 print("1.- cambiar rut...")
                 print("2.- cambiar nombre...")
@@ -117,7 +113,7 @@ class DataBase:
                 print("1.- cambiar rut...")
                 print("2.- cambiar nombre...")
                 print("3.- cambiar apellido...")
-                print("0.- cambiar edad...")
+                print("0.- cambiar edad...")                
                 print("5.- cambiar direccion...")
                 print("6.- cambiar correo...")
                 print("7.- cambiar especialidad")
@@ -197,4 +193,3 @@ class DataBase:
     def close(self):
         self.connection.close()
         print("la conexion fue cerrada...")
-u=DataBase()

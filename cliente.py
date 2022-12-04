@@ -1,5 +1,6 @@
 from Usuario import *
 from Conectar import *
+
 class cliente(usuario):
     def __init__(self,rut,nombre,apellido,edad,direccion,correo):
         super().__init__(rut,nombre,apellido,edad,direccion,correo)

@@ -1,4 +1,6 @@
 from Usuario import *
+from Conectar import *
+
 class trabajador(usuario):
     def __init__(self, rut, nombre, apellido, edad, direccion, correo,especialidad):
         super().__init__(rut, nombre, apellido, edad, direccion, correo)

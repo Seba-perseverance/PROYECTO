@@ -6,6 +6,7 @@ from cliente import *
 from Conectar import *
 from compras import *
 import os
+    
 class menu:
 
     def __init__():
@@ -37,6 +38,7 @@ class menu:
         elif op==3:
             os.system('cls')
             cliente.mostrar()
+            
             u=DataBase()
             u.modificarCLI()
             
@@ -79,6 +81,7 @@ class menu:
             u=DataBase()
             u.modificarPRO()
             input('Presione enter para continuar...')
+
         if op==4:
             os.system('cls')
             id =int(input("Ingrese id..."))
@@ -134,6 +137,8 @@ class menu:
             print(e)
     def menuCompras():
             os.system('cls')
+            cliente.mostrar()
+            idcli=int(input("Ingrese el id del cliente..."))
             print("-----------Compras---------")
             print("1.- Honda dio 125.")
             print("2.- Honda CB 300 R.")
@@ -141,10 +146,11 @@ class menu:
             print("4.- Susuki GSX-S125.")
             print("0.- Cerrar sesion...")
             op=int(input("Eliga una opcion..."))
-            c=compra(1,op,1)
+            c=compra(idcli,op,1)
             c.ingresarCompra()
             input('Presione enter para continuar...')
-    
+
+
     def menuPrincipal():
         while True:
             os.system('cls')
