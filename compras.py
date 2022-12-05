@@ -1,4 +1,4 @@
-from Productos import *
+from productos import *
 
 class compra:
     def __init__(self,cliente_idcliente,producto_idproducto,boleta_idboleta):

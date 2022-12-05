@@ -1,5 +1,4 @@
-from Usuario import *
-from Venta import *
+from usuario import *
 from trabajador import *
 from cliente import *
 from Conectar import *
