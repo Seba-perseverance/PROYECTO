@@ -1,4 +1,5 @@
 from Conectar import *
+import os
 class productos:
     def __init__(self,nombre,marca,precio):
         self.marca = marca
@@ -12,17 +13,45 @@ class productos:
         db.insert(sql)
     
     def mostrarP():
-        tabla='producto'
+        sql=f'SELECT * FROM producto'
         db=DataBase()
-        db.list(tabla)
+        db.list(sql)
         
-    def modificarP(id,rut,nombre,apellido,edad,direccion,correo):
-
-        sql=f'UPDATE producto SET rut={rut},nombre="{nombre}",apellido="{apellido}",edad={edad},direccion="{direccion}",correo="{correo}" Where idusuario={id};'
-        db=DataBase()
-        db.modific(sql)
-
-    
+    def modificarP(idPro):
+        while True:
+            os.system('cls')
+            print("-----------MENÚ---------")
+            print("1.- cambiar nombre del producto...")
+            print("2.- cambiar marca del producto...")
+            print("3.- cambiar precio del producto...")
+            print("4.- Salir...")
+            op=int(input("Ingrese una opcion..."))
+        
+            try:
+                if op==1:
+                    nombre=int(input("Ingrese el nuevo nombre..."))
+                    sql=f'UPDATE cliente SET nombre={nombre} WHERE idcliente={idPro}'
+                    db=DataBase()
+                    db.modific(sql)
+                elif op ==2:
+                    marca=input("Ingrese la nueva marca...")
+                    sql=f'UPDATE cliente SET marca="{marca}" WHERE idcliente={idPro}'
+                    db=DataBase()
+                    db.modific(sql)           
+                elif op ==3:
+                    precio=input("Ingrese el nuevo precio...")
+                    sql=f'UPDATE cliente SET precio="{precio}" WHERE idcliente={idPro}'
+                    db=DataBase()
+                    db.modific(sql)            
+                elif op ==4:
+                    print("Cerrando MENÚ...")
+                    break          
+                else:
+                    print("error")
+                    continue
+                    
+            except Error as e:
+                print (e)    
 
     def eliminarP(id):
         sql=f'DELETE FROM producto WHERE idusuario={id};'

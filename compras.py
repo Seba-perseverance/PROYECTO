@@ -9,6 +9,11 @@ class compra:
 
     def ingresarCompra(self):
         
-        sql=f'INSERT INTO compra (cliente_idcliente, producto_idproducto,boleta_idboleta,fecha) VALUES({self.idCliente},{self.idProducto},1,sysdate());'
+        sql=f'INSERT INTO compra (cliente_idcliente, nombre_emp,producto_idproducto,fecha) VALUES({self.idCliente},"CONSTRUCTORA S.A",{self.idProducto},sysdate());'
         db=DataBase()
         db.insert(sql)
+    
+    def mostrarCompras():
+        sql=f'SELECT * FROM compra'
+        db=DataBase()
+        db.list(sql)

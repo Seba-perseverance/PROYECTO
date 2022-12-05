@@ -1,5 +1,4 @@
 from Usuario import *
-from Boleta import *
 from Venta import *
 from trabajador import *
 from cliente import *
@@ -41,9 +40,8 @@ class menu:
             #Actualizar un cliente
             os.system('cls')
             cliente.mostrar()
-            
-            u=DataBase()
-            u.modificarCLI()
+            idCli=int(input("Ingrese el id del cliente..."))
+            cliente.modificar(idCli)
             
         elif op==4:
             #Eliminar un cliente
@@ -85,8 +83,8 @@ class menu:
         elif op==3:
             os.system('cls')
             productos.mostrarP()
-            u=DataBase()
-            u.modificarPRO()
+            idPro=int(input("Ingrese el id del producto..."))
+            productos.modificarP(idPro)
             input('Presione enter para continuar...')
 
         if op==4:
@@ -95,6 +93,7 @@ class menu:
             productos.eliminarP(id)
             input('Presione enter para continuar...')
     def menuEmpleado():
+        
         print("-----------Trabajadores---------")
         print("1.- Agregar trabajadores.")
         print("2.- Mostrar trabajadores.")
@@ -123,16 +122,8 @@ class menu:
             elif op==3:
                 os.system('cls')
                 trabajador.mostrarT()
-                id=int(input("Ingrese el id del usuario..."))
-                print("Solicitando datos de usuario ...\n")
-                rut = int(input("Ingrese rut ..."))
-                nombre= input("Ingrese el nombre...")
-                apellido = input("Ingrese el apellido...")
-                edad= int(input("Ingrese la edad..."))
-                direccion = input("Ingrese la direccion...")
-                correo = input("Ingrese el correo...")
-                
-                trabajador.modificarT(id,rut,nombre,apellido,edad,direccion,correo)
+                idTra=int(input("Ingrese el id del trabajador..."))
+                trabajador.modificarT(idTra)
                 input('Presione enter para continuar...')
             if op==4:
                 os.system('cls')
@@ -144,19 +135,29 @@ class menu:
             print(e)
     def menuCompras():
             os.system('cls')
-            cliente.mostrar()
-            idcli=int(input("Ingrese el id del cliente..."))
-            print("-----------Productos---------")
-            print("1.- Honda dio 125.")
-            print("2.- Honda CB 300 R.")
-            print("3.- Susuki Address 125.")
-            print("4.- Susuki GSX-S125.")
-            print("0.- Cerrar sesion...")
-            idPro=int(input("Eliga un producto..."))
-            c=compra(idcli,idPro,1)
-            c.ingresarCompra()
-            input('Presione enter para continuar...')
-
+            print("-----------MENÚ productos-------------")
+            print("1.- Comprar producto.")
+            print("2.- Mostrar compras.")
+            op=int(input("Ingrese una de las opciones..."))
+            if op == 1:
+                os.system('cls')
+                cliente.mostrar()
+                idcli=int(input("Ingrese el id del cliente..."))
+                print("-----------Productos---------")
+                print("1.- Honda dio 125.")
+                print("2.- Honda CB 300 R.")
+                print("3.- Susuki Address 125.")
+                print("4.- Susuki GSX-S125.")
+                print("0.- Cerrar sesion...")
+                idPro=int(input("Eliga un producto..."))
+                c=compra(idcli,idPro,1)
+                c.ingresarCompra()
+                input('Presione enter para continuar...')
+            elif op == 2:
+                os.system('cls')
+                compra.mostrarCompras()
+                input('Presione para continuar...')
+    
 
     def menuPrincipal():
         while True:
@@ -168,7 +169,7 @@ class menu:
             print("4.- Comprar productos.")
             print("0.- Cerrar sesion...")
             try:
-                op=int(input("Ingrese la opcion deseada:  "))
+                op=int(input("Ingrese una de las opciones:  "))
                 if op == 1:
                     os.system('cls')
                     menu.__init__()
@@ -185,6 +186,10 @@ class menu:
                     os.system('cls')
                     menu.menuCompras()
                     input('Presione enter para continuar...')
+                elif op == 5:
+                    os.system('cls')
+                    menu.menuBoleta()
+                    input('Presione para continuar...')
                 elif op ==0:
                     os.system('cls')
                     print("Sesion cerrada....")
