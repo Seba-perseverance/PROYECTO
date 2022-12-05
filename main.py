@@ -40,8 +40,53 @@ class menu:
             os.system('cls')
             cliente.mostrar()
             idCli=int(input("Ingrese el id del cliente..."))
-            cliente.modificar(idCli)
-            
+            while True:
+                os.system('cls')
+                print("-----------MENÚ---------")
+                print("1.- cambiar rut...")
+                print("2.- cambiar nombre...")
+                print("3.- cambiar apellido...")
+                print("4.- cambiar edad...")
+                print("5.- cambiar direccion...")
+                print("6.- cambiar correo...")
+                print("7.- Salir...")
+                op=int(input("Ingrese una opcion..."))
+        
+                try:
+                    if op==1:
+                        u='rut'
+                        op1=int(input("Ingrese el nuevo rut..."))
+                        cliente.modificar1(idCli,op1,u)
+                    elif op ==2:
+                        u='nombre'
+                        op1=input("Ingrese el nuevo nombre...")
+                        cliente.modificar2(idCli,op1,u)       
+                    elif op ==3:
+                        u='apellido'
+                        op1=input("Ingrese el nuevo apellido...")
+                        cliente.modificar2(idCli,op1,u)         
+                    elif op ==4:
+                        u='direccion'
+                        edad=input("Ingrese la nueva edad...")
+                        cliente.modificar2(idCli,op1,u)          
+                    elif op ==5:
+                        u='edad'
+                        op1=input("Ingrese la nueva direccion...")
+                        cliente.modificar2(idCli,op1,u)          
+                    elif op ==6:
+                        u='correo'
+                        op1=input("Ingrese el nuevo correo...")
+                        cliente.modificar2(idCli,op1,u)
+                    elif op ==7:
+                        print("Cerrando MENÚ...")
+                        break          
+                    else:
+                        print("error")
+                        continue
+                        
+                except Error as e:
+                    print (e) 
+                
         elif op==4:
             #Eliminar un cliente
             os.system('cls')
@@ -82,11 +127,40 @@ class menu:
         elif op==3:
             os.system('cls')
             productos.mostrarP()
-            idPro=int(input("Ingrese el id del producto..."))
-            productos.modificarP(idPro)
-            input('Presione enter para continuar...')
+            idPro=int(input("Ingrese el id del cliente..."))
+            while True:
+                os.system('cls')
+                print("-----------MENÚ---------")
+                print("1.- cambiar nombre del producto...")
+                print("2.- cambiar marca del producto...")
+                print("3.- cambiar precio del producto...")
+                print("4.- Salir...")
+                op=int(input("Ingrese una opcion..."))
+            
+                try:
+                    if op==1:
+                        u='nombre'
+                        op=int(input("Ingrese el nuevo nombre..."))
+                        productos.modificarP2(idPro,op1,u)
+                    elif op ==2:
+                        u='marca'
+                        op1=input("Ingrese la nueva marca...")
+                        productos.modificarP2(idPro,op1,u)       
+                    elif op ==3:
+                        u='precio'
+                        op1=input("Ingrese el nuevo precio...")
+                        productos.modificarP1(idPro,op1,u)               
+                    elif op ==4:
+                        print("Cerrando MENÚ...")
+                        break          
+                    else:
+                        print("error")
+                        break
+                        
+                except Error as e:
+                    print (e)    
 
-        if op==4:
+        elif op==4:
             os.system('cls')
             id =int(input("Ingrese id..."))
             productos.eliminarP(id)
@@ -122,8 +196,57 @@ class menu:
                 os.system('cls')
                 trabajador.mostrarT()
                 idTra=int(input("Ingrese el id del trabajador..."))
-                trabajador.modificarT(idTra)
-                input('Presione enter para continuar...')
+                while True:
+                    os.system('cls')
+                    print("-----------MENÚ---------")
+                    print("1.- cambiar rut...")
+                    print("2.- cambiar nombre...")
+                    print("3.- cambiar apellido...")
+                    print("4.- cambiar edad...")
+                    print("5.- cambiar direccion...")
+                    print("6.- cambiar correo...")
+                    print("7.- cambiar cargo...")
+                    print("8.- Salir...")
+                    op=int(input("Ingrese una opcion..."))
+                
+                    try:
+                        if op==1:
+                            u='rut'
+                            op1=int(input("Ingrese el nuevo rut..."))
+                            trabajador.modificarT1(idTra,op1,u)
+                        elif op ==2:
+                            u='nombre'
+                            op1=input("Ingrese el nuevo nombre...")
+                            trabajador.modificarT2(idTra,op1,u)         
+                        elif op ==3:
+                            u='apellido'
+                            op1=input("Ingrese el nuevo apellido...")
+                            trabajador.modificarT2(idTra,op1,u)            
+                        elif op ==4:
+                            u='edad'
+                            op1=int(input("Ingrese la nueva edad..."))
+                            trabajador.modificarT1(idTra,op1,u)           
+                        elif op ==5:
+                            u='direccion'
+                            op1=input("Ingrese la nueva direccion...")
+                            trabajador.modificarT2(idTra,op1,u)            
+                        elif op ==6:
+                            u='correo'
+                            op1=input("Ingrese el nuevo correo...")
+                            trabajador.modificarT2(idTra,op1,u)
+                        elif op ==7:
+                            u='cargo'
+                            op1=input("Ingrese el nuevo cargo...")
+                            trabajador.modificarT2(idTra,op1,u) 
+                        elif op ==8:
+                            print("Cerrando MENÚ...")
+                            break          
+                        else:
+                            print("error")
+                            continue
+                            
+                    except Error as e:
+                        print (e)  
             if op==4:
                 os.system('cls')
                 id =int(input("Ingrese id..."))

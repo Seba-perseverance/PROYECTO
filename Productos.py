@@ -17,41 +17,14 @@ class productos:
         db=DataBase()
         db.list(sql)
         
-    def modificarP(idPro):
-        while True:
-            os.system('cls')
-            print("-----------MENÚ---------")
-            print("1.- cambiar nombre del producto...")
-            print("2.- cambiar marca del producto...")
-            print("3.- cambiar precio del producto...")
-            print("4.- Salir...")
-            op=int(input("Ingrese una opcion..."))
-        
-            try:
-                if op==1:
-                    nombre=int(input("Ingrese el nuevo nombre..."))
-                    sql=f'UPDATE cliente SET nombre={nombre} WHERE idcliente={idPro}'
-                    db=DataBase()
-                    db.modific(sql)
-                elif op ==2:
-                    marca=input("Ingrese la nueva marca...")
-                    sql=f'UPDATE cliente SET marca="{marca}" WHERE idcliente={idPro}'
-                    db=DataBase()
-                    db.modific(sql)           
-                elif op ==3:
-                    precio=input("Ingrese el nuevo precio...")
-                    sql=f'UPDATE cliente SET precio="{precio}" WHERE idcliente={idPro}'
-                    db=DataBase()
-                    db.modific(sql)            
-                elif op ==4:
-                    print("Cerrando MENÚ...")
-                    break          
-                else:
-                    print("error")
-                    continue
-                    
-            except Error as e:
-                print (e)    
+    def modificarP1(idPro,op1,u):
+        sql=f'UPDATE producto SET {u}={op1} WHERE idproducto={idPro}'
+        db=DataBase()
+        db.modific(sql)
+    def modificarP2(idPro,op1,u):
+        sql=f'UPDATE producto SET {u}="{op1}" WHERE idproducto={idPro}'
+        db=DataBase()
+        db.modific(sql)
 
     def eliminarP(id):
         sql=f'DELETE FROM producto WHERE idusuario={id};'
