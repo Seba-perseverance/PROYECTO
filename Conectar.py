@@ -8,7 +8,7 @@ class DataBase:
                 host='localhost',
                 user='root',
                 password="Nokia2022",
-                database="mydb1"
+                database="mydb"
                 )               
             print("Ingreso a BD..")
             self.connection=aux

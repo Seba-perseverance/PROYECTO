@@ -1,4 +1,4 @@
-from usuario import *
+from Usuario import *
 from Conectar import *
 import os
 class cliente(usuario):

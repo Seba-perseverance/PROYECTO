@@ -1,4 +1,4 @@
-from usuario import *
+from Usuario import *
 from trabajador import *
 from cliente import *
 from Conectar import *
