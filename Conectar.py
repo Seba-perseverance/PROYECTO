@@ -14,7 +14,7 @@ class DataBase:
             print("Ingreso a BD..")
             self.connection=aux
         except Error as e:
-            print( 'error'+str(e))
+            print( 'error'+ str(e))
     def insert(self,sql):
         try:
             cursor = self.connection.cursor()

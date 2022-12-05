@@ -11,7 +11,7 @@ class menu:
 
     def __init__():
         
-        print("-----------Clientes---------")
+        print("----------- Trabajar con Clientes---------")
         print("1.- Agregar cliente.")
         print("2.- Mostrar clientes.")
         print("3.- Modificar datos de cliente.")
@@ -19,6 +19,7 @@ class menu:
         print("5.- Regresar al MENÚ principal.")
         op=int(input("Eliga una opcion..."))
         if op ==1:
+            #Agregar clientes
             os.system('cls')
             print("Solicitando datos ...\n")
             rut = int(input("Ingrese rut ..."))
@@ -32,10 +33,12 @@ class menu:
             print("Cliente guardado exitosamente!...")
             
         elif op==2:
+            #Mostrar clientes
             os.system('cls')
             cliente.mostrar()
             
         elif op==3:
+            #Actualizar un cliente
             os.system('cls')
             cliente.mostrar()
             
@@ -43,6 +46,7 @@ class menu:
             u.modificarCLI()
             
         elif op==4:
+            #Eliminar un cliente
             os.system('cls')
             cliente.mostrar()
             id =int(input("Ingrese id... "))
@@ -52,6 +56,9 @@ class menu:
             os.system('cls')
             print("Regresaste al MENÚ principal...")
             menu.menuPrincipal()
+        else:
+            print("error...")
+            
             
     def menuProductos():
         print("-----------Productos---------")
@@ -104,7 +111,7 @@ class menu:
                 edad= int(input("Ingrese la edad... "))
                 direccion = input("Ingrese la direccion...")
                 correo = input("Ingrese el correo...")
-                especialidad =input("Ingrese la especialidad...")
+                especialidad =input("Ingrese el cargo...")
                 nuevoU = trabajador(rut,nombre,apellido,edad,direccion,correo,especialidad)
                 nuevoU.creaT()
                 print("Usuario guardado exitosamente! \n")
@@ -139,14 +146,14 @@ class menu:
             os.system('cls')
             cliente.mostrar()
             idcli=int(input("Ingrese el id del cliente..."))
-            print("-----------Compras---------")
+            print("-----------Productos---------")
             print("1.- Honda dio 125.")
             print("2.- Honda CB 300 R.")
             print("3.- Susuki Address 125.")
             print("4.- Susuki GSX-S125.")
             print("0.- Cerrar sesion...")
-            op=int(input("Eliga una opcion..."))
-            c=compra(idcli,op,1)
+            idPro=int(input("Eliga un producto..."))
+            c=compra(idcli,idPro,1)
             c.ingresarCompra()
             input('Presione enter para continuar...')
 
@@ -189,4 +196,4 @@ class menu:
             except  :
                 input("Eliga una de las opciones del MENÚ...")  
                 continue
-menu.menuPrincipal()
+u=menu.menuPrincipal()
