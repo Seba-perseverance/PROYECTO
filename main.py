@@ -308,10 +308,7 @@ class menu:
                     os.system('cls')
                     menu.menuCompras()
                     input('Presione enter para continuar...')
-                elif op == 5:
-                    os.system('cls')
-                    menu.menuBoleta()
-                    input('Presione para continuar...')
+                
                 elif op ==0:
                     os.system('cls')
                     print("Sesion cerrada....")
