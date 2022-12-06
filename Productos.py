@@ -27,7 +27,7 @@ class productos:
         db.modific(sql)
 
     def eliminarP(id):
-        sql=f'DELETE FROM producto WHERE idusuario={id};'
+        sql=f'DELETE FROM producto WHERE idproducto={id};'
         db=DataBase()
         db.Eliminar(sql)
 

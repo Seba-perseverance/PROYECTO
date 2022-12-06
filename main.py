@@ -1,3 +1,4 @@
+#Modulos importados
 from Usuario import *
 from trabajador import *
 from cliente import *
@@ -6,10 +7,10 @@ from compras import *
 import os
     
 class menu:
-
+        #CRUD de clientes
     def __init__():
         
-        print("----------- Trabajar con Clientes---------")
+        print("----------- Trabajar Cliente---------")
         print("1.- Agregar cliente.")
         print("2.- Mostrar clientes.")
         print("3.- Modificar datos de cliente.")
@@ -42,7 +43,7 @@ class menu:
             idCli=int(input("Ingrese el id del cliente..."))
             while True:
                 os.system('cls')
-                print("-----------MENÚ---------")
+                print("-----------Modificar datos del cliente---------")
                 print("1.- cambiar rut...")
                 print("2.- cambiar nombre...")
                 print("3.- cambiar apellido...")
@@ -93,7 +94,7 @@ class menu:
             cliente.mostrar()
             id =int(input("Ingrese id... "))
             cliente.eliminar(id)
-            
+            #Regresar al menù
         elif op==5:
             os.system('cls')
             print("Regresaste al MENÚ principal...")
@@ -101,15 +102,16 @@ class menu:
         else:
             print("error...")
             
-            
+        #CRUD DE productos
     def menuProductos():
-        print("-----------Productos---------")
+        print("-----------Trabajar producto---------")
         print("1.- Agregar producto.")
         print("2.- Mostrar producto.")
         print("3.- Modificar producto.")
         print("4.- Eliminar producto.")
         print("5.- Regresar al MENÚ principal.")
         op=int(input("Eliga una opcion..."))
+        #Agregar producto
         if op ==1:
             os.system('cls')
             print("Solicitando datos ...\n")
@@ -120,27 +122,29 @@ class menu:
             nuevoP.creaP()
             print("Producto guardado exitosamente! \n")
             input('Presione enter para continuar...')
+        #Mostrar todos los productos
         elif op==2:
             os.system('cls')
             productos.mostrarP()
             input('Presione enter para continuar...')
+        #Modificar un producto elegido
         elif op==3:
             os.system('cls')
             productos.mostrarP()
             idPro=int(input("Ingrese el id del cliente..."))
             while True:
                 os.system('cls')
-                print("-----------MENÚ---------")
+                print("-----------Modificar datos del producto---------")
                 print("1.- cambiar nombre del producto...")
                 print("2.- cambiar marca del producto...")
                 print("3.- cambiar precio del producto...")
                 print("4.- Salir...")
                 op=int(input("Ingrese una opcion..."))
-            
+                #u=nombre de la columna
                 try:
                     if op==1:
                         u='nombre'
-                        op=int(input("Ingrese el nuevo nombre..."))
+                        op1=int(input("Ingrese el nuevo nombre..."))
                         productos.modificarP2(idPro,op1,u)
                     elif op ==2:
                         u='marca'
@@ -159,22 +163,23 @@ class menu:
                         
                 except Error as e:
                     print (e)    
-
+        #Eliminar producto
         elif op==4:
             os.system('cls')
+            productos.mostrarP()
             id =int(input("Ingrese id..."))
             productos.eliminarP(id)
             input('Presione enter para continuar...')
     def menuEmpleado():
         
-        print("-----------Trabajadores---------")
+        print("-----------Trabajar trabajador---------")
         print("1.- Agregar trabajadores.")
         print("2.- Mostrar trabajadores.")
         print("3.- Modificar datos de trabajadores.")
         print("4.- Eliminar trabajadores.")
         try:
             op=int(input("Eliga una opcion..."))
-            if op ==1:
+            if op ==1: # ingresar trabajador
                 os.system('cls')
                 print("Solicitando datos ...\n")
                 rut = int(input("Ingrese rut ..."))
@@ -183,22 +188,22 @@ class menu:
                 edad= int(input("Ingrese la edad... "))
                 direccion = input("Ingrese la direccion...")
                 correo = input("Ingrese el correo...")
-                especialidad =input("Ingrese el cargo...")
-                nuevoU = trabajador(rut,nombre,apellido,edad,direccion,correo,especialidad)
+                cargo =input("Ingrese el cargo...")
+                nuevoU = trabajador(rut,nombre,apellido,edad,direccion,correo,cargo)
                 nuevoU.creaT()
                 print("Usuario guardado exitosamente! \n")
                 input('Presione enter para continuar...')
-            elif op==2:
+            elif op==2:#mostrar todos los trabajadores
                 os.system('cls')
                 trabajador.mostrarT()
                 input('Presione enter para continuar...')
-            elif op==3:
+            elif op==3:#modificar  dato del trabajdor
                 os.system('cls')
                 trabajador.mostrarT()
                 idTra=int(input("Ingrese el id del trabajador..."))
                 while True:
                     os.system('cls')
-                    print("-----------MENÚ---------")
+                    print("-----------Modificar datos del trabajador---------")
                     print("1.- cambiar rut...")
                     print("2.- cambiar nombre...")
                     print("3.- cambiar apellido...")
@@ -247,19 +252,24 @@ class menu:
                             
                     except Error as e:
                         print (e)  
-            if op==4:
+            elif op==4:#eliminar trabajador
                 os.system('cls')
+                trabajador.mostrarT()
                 id =int(input("Ingrese id..."))
-                
                 trabajador.eliminarT(id)
                 input('Presione enter para continuar...')
+            else:
+                print("error...")
+                
         except Error as e:
             print(e)
-    def menuCompras():
+    def menuCompras():#compras
+        while True:
             os.system('cls')
             print("-----------MENÚ productos-------------")
             print("1.- Comprar producto.")
             print("2.- Mostrar compras.")
+            print("3.- Volver al menù")
             op=int(input("Ingrese una de las opciones..."))
             if op == 1:
                 os.system('cls')
@@ -272,15 +282,18 @@ class menu:
                 print("4.- Susuki GSX-S125.")
                 print("0.- Cerrar sesion...")
                 idPro=int(input("Eliga un producto..."))
-                c=compra(idcli,idPro,1)
+                c=compra(idcli,idPro)
                 c.ingresarCompra()
                 input('Presione enter para continuar...')
             elif op == 2:
                 os.system('cls')
                 compra.mostrarCompras()
                 input('Presione para continuar...')
-    
-
+            elif op == 3:
+                break
+            else:
+                break
+            
     def menuPrincipal():
         while True:
             os.system('cls')

@@ -2,12 +2,12 @@ from Usuario import *
 from Conectar import *
 import os
 class trabajador(usuario):
-    def __init__(self, rut, nombre, apellido, edad, direccion, correo,especialidad):
+    def __init__(self, rut, nombre, apellido, edad, direccion, correo,cargo):
         super().__init__(rut, nombre, apellido, edad, direccion, correo)
-        self.especialidad=especialidad
+        self.cargo=cargo
 
     def creaT(self):
-        sql=f'INSERT INTO trabajador (rut,nombre,apellido,edad,direccion,correo,cargo) VALUES ({self.rut},"{self.nombre}","{self.apellido}",{self.edad},"{self.direccion}","{self.correo}","{self.especialidad}")'
+        sql=f'INSERT INTO trabajador (rut,nombre,apellido,edad,direccion,correo,cargo) VALUES ({self.rut},"{self.nombre}","{self.apellido}",{self.edad},"{self.direccion}","{self.correo}","{self.cargo}")'
         db=DataBase()
         db.insert(sql)
     
@@ -26,6 +26,6 @@ class trabajador(usuario):
         db.modific(sql) 
 
     def eliminarT(id):
-        sql=f'DELETE FROM usuario WHERE idusuario={id};'
+        sql=f'DELETE FROM trabajador WHERE idtrabajador={id};'
         db=DataBase()
         db.Eliminar(sql)
