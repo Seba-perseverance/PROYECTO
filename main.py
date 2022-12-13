@@ -1,9 +1,10 @@
 #Modulos importados
-from Usuario import *
+from usuario import *
 from trabajador import *
 from cliente import *
 from Conectar import *
 from compras import *
+from weather import *
 import os
     
 class menu:
@@ -298,6 +299,7 @@ class menu:
             print("2.- Trabajar con trabajadores.")
             print("3.- Trabajar con productos.")
             print("4.- Comprar productos.")
+            print("5.- Clima")
             print("0.- Cerrar sesion...")
             try:
                 op=int(input("Ingrese una de las opciones:  "))
@@ -322,6 +324,12 @@ class menu:
                     os.system('cls')
                     print("Sesion cerrada....")
                     break
+                elif op ==5:
+                    os.system('cls')
+                    city = input("Ingrese la ciudad...")
+                    u = clima(city)
+                    u.mostrar_clima()
+                    input('Presione enter para continuar...')
                 else:
                     os.system('cls')
                     print("Ingrese a una de las opciones del MENÚ...")
